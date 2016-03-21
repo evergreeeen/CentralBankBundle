@@ -1,0 +1,3 @@
+services:
+    ajstudio.central_bank:
+        class: AJStudio\CentralBankBundle\Service\CentralBankService
