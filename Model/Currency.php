@@ -8,37 +8,57 @@
 
 namespace AJStudio\CentralBankBundle\Model;
 
+use Doctrine\ORM\Mapping as ORM;
+
 class Currency
 {
     /**
      * @var string
+     *
+     * @ORM\Column(name="id", type="string")
+     * @ORM\Id()
      */
     protected $id;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="num_code", type="string")
      */
     protected $NumCode;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="char_code", type="string")
      */
     protected $charCode;
 
     /**
      * @var int
+     *
+     * @ORM\Column(name="nominal", type="integer")
      */
     protected $nominal;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="name", type="string")
      */
     protected $name;
 
     /**
      * @var float
+     *
+     * @ORM\Column(name="value", type="float")
      */
     protected $value;
+
+    /**
+     * @var \DateTime
+     */
+    protected $date;
 
     /**
      * @return int
@@ -134,5 +154,21 @@ class Currency
     public function setValue($value)
     {
         $this->value = $value;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getDate()
+    {
+        return $this->date;
+    }
+
+    /**
+     * @param \DateTime $date
+     */
+    public function setDate($date)
+    {
+        $this->date = $date;
     }
 }

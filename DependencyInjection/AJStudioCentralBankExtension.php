@@ -27,6 +27,9 @@ class AJStudioCentralBankExtension extends Extension
 
         $container->setParameter('ajstudio_central_bank.url', $processedConfig['url']);
         $container->setParameter('ajstudio_central_bank.currencies', $processedConfig['currencies']);
+        $container->setParameter('ajstudio_central_bank.allow_db_history', $processedConfig['currencies']);
+        $container->setParameter('ajstudio_central_bank.currency_entity', $processedConfig['currencies']);
+        $container->setParameter('ajstudio_central_bank.currency_has_value_entity', $processedConfig['currencies']);
 
         $geoServiceDefinition = $container->getDefinition('ajstudio.central_bank');
         $geoServiceDefinition->addMethodCall('setConfig', [ $processedConfig ]);

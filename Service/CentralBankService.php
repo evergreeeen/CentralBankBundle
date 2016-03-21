@@ -22,12 +22,24 @@ class CentralBankService
     /** @var array */
     protected $currencies;
 
+    /** @var bool */
+    protected $allowDbHistory;
+
+    /** @var string */
+    protected $currencyEntity;
+
+    /** @var string */
+    protected $currencyHasValueEntity;
+
     /**
      * @param array $config
      */
     public function setConfig(array $config) {
         $this->url = $config['url'];
         $this->currencies = $config['currencies'];
+        $this->allowDbHistory = $config['allow_db_history'];
+        $this->currencyEntity = $config['currency_entity'];
+        $this->currencyHasValueEntity = $config['currency_has_value_entity'];
     }
 
     /**
@@ -52,7 +64,9 @@ class CentralBankService
         if (empty($this->currencies)) {
             /** @var $currencyElement \DOMElement */
             foreach ($currencyElements as $currencyElement) {
-                $outputCurrencies->add($this->getCurrencyByDomElement($currencyElement));
+                $currency = $this->getCurrencyByDomElement($currencyElement);
+                $currency->setDate($dateTime);
+                $outputCurrencies->add($this->getCurrencyByDomElement($currency));
             }
         }
         else {
@@ -62,7 +76,9 @@ class CentralBankService
                     continue;
                 }
 
-                $outputCurrencies->add($this->getCurrencyByDomElement($currencyElement));
+                $currency = $this->getCurrencyByDomElement($currencyElement);
+                $currency->setDate($dateTime);
+                $outputCurrencies->add($currency);
             }
         }
 
@@ -120,5 +136,85 @@ class CentralBankService
         $currency->setValue($DOMElement->getElementsByTagName('Value')->item(0)->nodeValue);
 
         return $currency;
+    }
+
+    /**
+     * @return string
+     */
+    public function getUrl()
+    {
+        return $this->url;
+    }
+
+    /**
+     * @param string $url
+     */
+    public function setUrl($url)
+    {
+        $this->url = $url;
+    }
+
+    /**
+     * @return array
+     */
+    public function getCurrencies()
+    {
+        return $this->currencies;
+    }
+
+    /**
+     * @param array $currencies
+     */
+    public function setCurrencies($currencies)
+    {
+        $this->currencies = $currencies;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function isAllowDbHistory()
+    {
+        return $this->allowDbHistory;
+    }
+
+    /**
+     * @param boolean $allowDbHistory
+     */
+    public function setAllowDbHistory($allowDbHistory)
+    {
+        $this->allowDbHistory = $allowDbHistory;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCurrencyEntity()
+    {
+        return $this->currencyEntity;
+    }
+
+    /**
+     * @param string $currencyEntity
+     */
+    public function setCurrencyEntity($currencyEntity)
+    {
+        $this->currencyEntity = $currencyEntity;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCurrencyHasValueEntity()
+    {
+        return $this->currencyHasValueEntity;
+    }
+
+    /**
+     * @param string $currencyHasValueEntity
+     */
+    public function setCurrencyHasValueEntity($currencyHasValueEntity)
+    {
+        $this->currencyHasValueEntity = $currencyHasValueEntity;
     }
 }

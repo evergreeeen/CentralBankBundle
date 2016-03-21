@@ -29,6 +29,9 @@ class Configuration implements ConfigurationInterface
                 ->arrayNode('currencies')
                     ->prototype('scalar')->end()
                 ->end()
+                ->booleanNode('allow_db_history')->end()
+                ->scalarNode('currency_entity')->end()
+                ->scalarNode('currency_has_value_entity')->end()
             ->end()
         ;
 
