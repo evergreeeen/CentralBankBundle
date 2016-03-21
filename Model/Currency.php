@@ -15,7 +15,7 @@ class Currency
     /**
      * @var string
      *
-     * @ORM\Column(name="id", type="string")
+     * @ORM\Column(name="id", type="string", length=6)
      * @ORM\Id()
      */
     protected $id;
@@ -23,14 +23,14 @@ class Currency
     /**
      * @var string
      *
-     * @ORM\Column(name="num_code", type="string")
+     * @ORM\Column(name="num_code", type="string", length=3)
      */
     protected $NumCode;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="char_code", type="string")
+     * @ORM\Column(name="char_code", type="string", length=5)
      */
     protected $charCode;
 
@@ -50,8 +50,6 @@ class Currency
 
     /**
      * @var float
-     *
-     * @ORM\Column(name="value", type="float")
      */
     protected $value;
 
