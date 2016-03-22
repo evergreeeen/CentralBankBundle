@@ -1,0 +1,30 @@
+{
+  "name": "ajstudio/central-bank-bundle",
+  "description": "Simple bundle for get russian central bank currencies with Symfony3",
+  "keywords": ["symfony3", "central bank"],
+  "type": "symfony-bundle",
+  "license": "MIT",
+  "authors": [{
+    "name" : "Anton Jukov",
+    "email": "2ball.aj@gmail.com"
+  }],
+  "require": {
+    "php"                          : ">=5.5.0",
+    "symfony/dependency-injection" : "~2.3 || ~3.0",
+    "symfony/config"               : "~2.3 || ~3.0",
+    "symfony/yaml"                 : "~2.3 || ~3.0"
+  },
+  "require-dev": {
+    "symfony/debug"     : "~3.0"
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "1.x-dev"
+    }
+  },
+  "autoload": {
+    "psr-4": {
+      "AJStudio\\CentralBankBundle\\": ""
+    }
+  }
+}
