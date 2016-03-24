@@ -12,8 +12,6 @@ What can I do with this bundle
 Overview
 --------
 
-You must achieve these following steps before send your first message through websocket.
-
 1. Install
 2. Add to AppKernel in your app
 3. Configure bundle
