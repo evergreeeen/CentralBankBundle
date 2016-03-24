@@ -27,11 +27,12 @@ class Configuration implements ConfigurationInterface
                     ->cannotBeEmpty()
                 ->end()
                 ->arrayNode('currencies')
+                    ->defaultValue([])
                     ->prototype('scalar')->end()
                 ->end()
-                ->booleanNode('allow_db_history')->end()
-                ->scalarNode('currency_entity')->end()
-                ->scalarNode('currency_has_value_entity')->end()
+                ->booleanNode('allow_db_history')->defaultValue(false)->end()
+                ->scalarNode('currency_entity')->defaultValue(false)->end()
+                ->scalarNode('currency_has_value_entity')->defaultValue(false)->end()
             ->end()
         ;
 
