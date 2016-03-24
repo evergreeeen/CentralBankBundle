@@ -8,7 +8,7 @@
 
 namespace AJStudio\CentralBankBundle\Tests\Util;
 
-use AJStudio\CentralBankBundle\Service\CentralBankService;
+use \AJStudio\CentralBankBundle\Service\CentralBankService;
 
 
 class GetCurrenciesTest extends \PHPUnit_Framework_TestCase
