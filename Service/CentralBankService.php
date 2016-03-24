@@ -66,7 +66,7 @@ class CentralBankService
             foreach ($currencyElements as $currencyElement) {
                 $currency = $this->getCurrencyByDomElement($currencyElement);
                 $currency->setDate($dateTime);
-                $outputCurrencies->add($this->getCurrencyByDomElement($currency));
+                $outputCurrencies->add($this->getCurrencyByDomElement($currencyElement));
             }
         }
         else {
